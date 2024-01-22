@@ -41,8 +41,6 @@ session_start();
     {
       $record=mysqli_fetch_array($result);
       $_SESSION["checkemail"]=$record["email"];
-      //echo'<script>alert("Login Successful, Welcome ' . $_SESSION['checkemail'] . '");</script>';
-      //echo'<script>alert("Login Successful, Welcome ' . $_SESSION['checkemail'] . '"); window.location.href="reset.php";</script>';
       header("location:reset.php");
     }
     else

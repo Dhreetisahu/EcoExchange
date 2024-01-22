@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-if(isset($_POST["logbtn"])) // changed to POST method
+if(isset($_POST["logbtn"])) 
 {
     $email=$_POST["email"];
     $password=$_POST["password"];
@@ -10,14 +10,13 @@ if(isset($_POST["logbtn"])) // changed to POST method
 
     $qry="SELECT * FROM user WHERE email='$email' AND password='$password'";
     $result=mysqli_query($con,$qry);
-    if(mysqli_num_rows($result)>0) // changed to mysqli_num_rows
+    if(mysqli_num_rows($result)>0) 
     {
         $record=mysqli_fetch_array($result);
         $_SESSION["username"]=$record["username"];
         $_SESSION["email"]=$record["email"];
 		echo'<script>alert("Login Successful, Welcome ' . $_SESSION['username'] . '"); window.location.href="Home.php";</script>';
-        //header("location:home.php");
-       // exit();
+        
     } 
     else
     {
